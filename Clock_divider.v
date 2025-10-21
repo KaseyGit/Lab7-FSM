@@ -1,24 +1,5 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 10/14/2025 03:01:56 PM
-// Design Name: 
-// Module Name: Clock_divider
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
-
+//THIS IS THE CLOCK DIVIDER MODULE FROM LAB 6
 module Clock_divider(clock_in,clock_out);
 
 input clock_in;
