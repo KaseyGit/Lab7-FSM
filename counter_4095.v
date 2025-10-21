@@ -1,4 +1,4 @@
-module counter(
+module counter_4095(
 	input wire clk, 
 	input wire reset, 
 	output reg [11:0] count //12 bit counter output
@@ -21,3 +21,4 @@ always @(posedge clk) begin
 end
 
 endmodule
+
