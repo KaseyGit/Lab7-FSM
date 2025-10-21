@@ -21,5 +21,3 @@ always @(posedge clk) begin
 end
 
 endmodule
-
-module counter_tb();
