@@ -17,7 +17,7 @@ module topModule_tb();
         reset = 1'b1;
         #10;
         reset = 1'b0;
-        #10000;
+        #10000; //try 10000000
         $finish;
     end
 endmodule
