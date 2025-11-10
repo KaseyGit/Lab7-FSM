@@ -10,14 +10,16 @@ module topModule_tb();
  
  clk = 1'b0;
  
- forever #1 clk = ~clk;
+ forever #5 clk = ~clk; //changed from #1 to #5
  end
     
     initial begin
         reset = 1'b1;
-        #10;
+        #20; //changed from #10
         reset = 1'b0;
-        #10000; //try 10000000
+        #15000; 
+    
         $finish;
     end
 endmodule
+
