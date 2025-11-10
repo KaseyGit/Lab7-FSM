@@ -4,8 +4,8 @@ module counter_4095(
 	output reg [11:0] count //12 bit counter output
 );
 
-
-always @(posedge clk) begin
+//use asynch reset
+always @(posedge clk or posedge reset) begin
 	if(reset) begin
 	count <= 12'd0; //reset output to 0
 		end
@@ -19,5 +19,7 @@ always @(posedge clk) begin
 end
 
 endmodule
+
+
 
 
