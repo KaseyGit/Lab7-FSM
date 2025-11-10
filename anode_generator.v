@@ -24,12 +24,13 @@ module anode_generator(
     input clk,
     input [15:0] bcd_in,
     output [3:0] seg_anode,
-    output reg [3:0] bcd_out//the given four bits to display to the selected anode
+    output reg [3:0] bcd_out = 0//the given four bits to display to the selected anode
     );
     
 	reg [9:0] counter = 0; //10-bit counter is more stable for some reason
 	reg [3:0] anode = 4'b1110; //active low
-	reg [3:0] anode_buff;
+	//reg [3:0] anode_buff;
+	reg [3:0] anode_buff = 4'b110; //intialize anode_buff
 	
 	always @(posedge clk) begin
 		counter <= counter + 1; //so this is slow enough for us to see the changes, allows all four shifts to be shown
@@ -52,3 +53,4 @@ module anode_generator(
 	
 	assign seg_anode = anode_buff;
 endmodule
+
