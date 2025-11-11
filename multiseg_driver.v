@@ -22,13 +22,23 @@
 
 module multiseg_driver(
     input clk,
+    input en,
     input [15:0] bcd_in,
     output [3:0] seg_anode,
-    output [6:0] seg_cathode
+    output [6:0] seg_cathode,
+    output rdy //take after all anodes have displayed
     );
+    wire [3:0] bcd_result;
+	reg [15:0] anode_bcd_in;
+
     
-	wire [3:0] bcd_result;
+    always @(posedge clk) begin
+    	if(en)
+            begin
+            anode_bcd_in<=bcd_in;
+            end
+    end
 	
-	anode_generator anode_gen(.clk(clk), .bcd_in(bcd_in), .seg_anode(seg_anode), .bcd_out(bcd_result));
+	anode_generator anode_gen(.en(en), .clk(clk), .bcd_in(bcd_in), .seg_anode(seg_anode), .bcd_out(bcd_result), .rdy(rdy));
 	segment_7_binary cat_gen(.data_in(bcd_result), .seg(seg_cathode));
 endmodule
