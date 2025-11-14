@@ -16,7 +16,7 @@ always@(posedge clk or posedge reset)
  	if(reset)
  		PS <= S0;
  	else
-		PS <= NS ;
+		PS <= NS;
  	end
 
 //state transitions
@@ -36,19 +36,19 @@ always@(PS or P1)
  	if (P1)
  		NS = S2;
  	else
- 		NS = S1;
+ 		NS = S0;
  	end
 
  	S2 : begin
  	if(!P1) //if 0
 		NS = S3;
 	else
-		NS = S0;
+		NS = S2;
  	end
 
 	S3: begin
 	if (P1) //if 1
-		NS = S0;
+		NS = S1;
 	else
 		NS = S0;
 	end
